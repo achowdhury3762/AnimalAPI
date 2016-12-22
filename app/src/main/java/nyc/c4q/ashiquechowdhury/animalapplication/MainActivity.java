@@ -1,9 +1,9 @@
 package nyc.c4q.ashiquechowdhury.animalapplication;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,4 +15,5 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.activity_main_container, new AnimalListFragment())
                 .commit();
     }
+
 }

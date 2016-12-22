@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by ashiquechowdhury on 12/21/16.
  */
-public class AnimalListFragment extends Fragment {
+public class AnimalListFragment extends Fragment  implements AnimalAdapter.Listener{
     private static final String BASE_URL = "http://jsjrobotics.nyc/";
     private RecyclerView animalList;
 
@@ -49,7 +49,7 @@ public class AnimalListFragment extends Fragment {
             public void onResponse(Call<AllAnimals> call, Response<AllAnimals> response) {
                 AllAnimals myAnimals = response.body();
                 List<Animal> myResponseAnimalList = myAnimals.getAnimalList();
-                animalList.setAdapter(new AnimalAdapter(myResponseAnimalList));
+                animalList.setAdapter(new AnimalAdapter(myResponseAnimalList, AnimalListFragment.this));
             }
 
             @Override
@@ -57,5 +57,10 @@ public class AnimalListFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onClickedBackground( int backGroundColor) {
+        animalList.setBackgroundColor(backGroundColor);
     }
 }

@@ -21,25 +21,13 @@ public class AnimalViewHolder extends RecyclerView.ViewHolder{
 
     public void bind(Animal animal) {
         animalTView.setText(animal.getName());
-        int backgroundColor = Color.parseColor(animal.getBackground());
         int nameColor = Color.parseColor(animal.getTextColor());
 
         setNameColor(nameColor);
-
-        setBackGroundColorOnClick(backgroundColor);
     }
 
     public void setNameColor(int nameColor) {
         animalTView.setTextColor(nameColor);
 
-    }
-
-    public void setBackGroundColorOnClick(final int backGroundColorOnClick) {
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                itemView.setBackgroundColor(backGroundColorOnClick);
-            }
-        });
     }
 }
